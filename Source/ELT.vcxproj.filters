@@ -133,7 +133,4 @@
       <UniqueIdentifier>{2088b633-2609-414a-bc53-38b48eabda00}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="OpenETran.rc" />
-  </ItemGroup>
 </Project>
