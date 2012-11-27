@@ -1,0 +1,64 @@
+* incoming backflash for the EPRI 138-kV training example
+
+time 1 6e-9 10e-6
+
+* network definition
+
+span 1
+cable 1 472.0 3.0e8 -93.0e3
+end
+* end
+
+line 1 2 1 10.67 0 0
+line 2 3 1 15.24 0 0
+line 2 4 1  9.14 0 0
+line 2 5 1  9.14 0 0
+line 5 7 1  9.14 0 0
+line 7 8 1  9.14 0 0
+line 6 7 1 10.67 1 0
+line 7 9 1 15.24 0 0
+end
+
+labelphase 0 G
+labelphase 1 A
+
+labelpole 1 ln1
+labelpole 2 cb1
+labelpole 3 xf1
+labelpole 4 top
+labelpole 5 tiebrk
+labelpole 6 ln2
+labelpole 7 cb2
+labelpole 8 bot
+labelpole 9 xf2
+
+meter
+pairs 1 0
+poles all
+
+* source equivalent
+
+resistor 472.0
+pairs 1 0
+poles 1
+
+steepfront 2.54e3 1.82e-6 9.7e-6 1.0e-7 1.0
+pairs 1 0
+poles 1
+
+* transformers and arresters
+
+capacitor 2e-9
+pairs 1 0
+poles 3 9
+
+arrbez 0.0 296.0e3 0.051 1.57e-6 1.83 1
+pairs 1 0
+poles 3 9
+
+* insulators
+
+lpm 650.0e3 535.0e3 7.785e-7
+* lpm 650.0e3 551.3e3 1.831e-6
+pairs 1 0
+poles all

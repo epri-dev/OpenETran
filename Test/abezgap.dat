@@ -1,0 +1,17 @@
+1 3 30.0 1 1 0.001e-6 5.0e-6
+
+cable 1 400.0 3.0e8 0.0e3
+
+surge 20.0e3 1.0e-6 50.0e-6 0.0e-6
+pairs 1 0
+poles 2
+
+arrbez 45.0e3 40.0e3 0.0 0.0 0.0 1
+pairs 1 0
+poles 2
+
+meter
+pairs 1 0
+poles 2
+
+

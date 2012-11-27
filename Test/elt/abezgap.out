@@ -1,0 +1,22 @@
+  N   span     dT   Tmax
+  1  30.00 1e-009 5e-006
+Z-phase
+  4.00000e+002
+Z-modal
+  4.00000e+002
+Modal Transformation (Ti)
+  1.00000e+000
+Power-frequency source at pole 1.
+   #        vp        vm         i
+   1       0.0       0.0       0.0
+Power-frequency source at pole 3.
+   #        vp        vm         i
+   1       0.0       0.0       0.0
+Meter at pole 2, from 1 to 0, max V   = 4.571050e+004
+Meter at pole 2, arrester max I       = 1.977647e+004
+arrester at pole 2, from 1 to 0 discharged 1.977647e+004 Amperes.
+	Time operated: 9.600000e-008	Time of peak: 1.408000e-006
+	Charge: 8.305369e-002
+	Energy: 3.667480e+003
+nr_iter = 21544, nr_max = 10
+Execution time [sec]: 0.046

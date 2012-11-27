@@ -1,0 +1,28 @@
+2 41 3.0 1 1 0.005e-6 4.0e-6
+
+conductor 1 8.9917  0.000 13.8684e-3 0.0
+conductor 2 7.7724  0.000 13.8684e-3 0.0
+
+labelphase 0 G
+labelphase 1 A
+labelphase 2 N
+
+surge     31.0e3 2.0e-6 103.6239e-6 0.0
+pairs 1 0
+poles 21
+
+pipegap 744.0e3 436.89
+pairs 1 2
+poles even
+
+pipegap -744.0e3 436.89
+pairs 1 2
+poles odd
+
+ground 50.0 250.0 400.0e3 1.5441e-6 7.7724
+pairs 2 0
+poles 1 41
+
+meter
+pairs 1 2 2 0 1 0
+poles 21

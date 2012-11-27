@@ -1,0 +1,39 @@
+  N   span     dT   Tmax
+  2  30.00 5e-008 1.5e-005
+Z-phase
+  4.76183e+002  1.38454e+002
+  1.38454e+002  4.76183e+002
+Z-modal
+  3.37729e+002  5.68434e-014
+  0.00000e+000  6.14636e+002
+Modal Transformation (Ti)
+  7.07107e-001  7.07107e-001
+  -7.07107e-001  7.07107e-001
+Power-frequency source at pole 1.
+   #        vp        vm         i
+   1       0.0       0.0       0.0
+   2       0.0       0.0       0.0
+Power-frequency source at pole 5.
+   #        vp        vm         i
+   1       0.0       0.0       0.0
+   2       0.0       0.0       0.0
+Meter at pole 3, from 1 to 0, max V   = -1.346252e+005
+Meter at pole 3, from 1 to 2, max V   = -4.484838e+004
+Meter at pole 3, from 2 to 0, max V   = -9.144196e+004
+Meter at pole 1, pole ground max I    = -1.260137e+003
+Meter at pole 2, pole ground max I    = -1.444616e+003
+Meter at pole 3, pole ground max I    = -4.407167e+003
+Meter at pole 4, pole ground max I    = -1.444616e+003
+Meter at pole 5, pole ground max I    = -1.260137e+003
+Meter at pole 3, house ground max I   = -2.353430e+003
+Meter at pole 3, transformer X2 max I = -1.006049e+003
+Meter at pole 3, arrester max I       = -9.696768e+003
+Customer at pole 3, from 1 to 2.
+	Max Vp  = -4.484838e+004 volts
+	Max Ihg = -2.353430e+003 amps
+	Max Ix2 = -1.006049e+003 amps
+Arrester at pole 3, from 1 to 2 discharged -9.696768e+003 Amperes.
+	Time operated: 2.000000e-007	Time of peak: 1.750000e-006
+	Charge: -1.256869e-001	Energy: 5.578293e+003
+nr_iter = 0, nr_max = 0
+Execution time [sec]: 0

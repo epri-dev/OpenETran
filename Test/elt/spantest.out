@@ -1,0 +1,12 @@
+  N   span     dT   Tmax
+  1   0.00 6e-009 5e-006
+Z-phase
+  1.00000e+002
+Z-modal
+  1.00000e+002
+Modal Transformation (Ti)
+  1.00000e+000
+Meter at pole 1, from 1 to 0, max V   = 2.486309e+005
+Meter at pole 2, from 1 to 0, max V   = 2.526278e+005
+nr_iter = 0, nr_max = 0
+Execution time [sec]: 0

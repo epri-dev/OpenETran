@@ -1,0 +1,17 @@
+  N   span     dT   Tmax
+  1 100.00 1e-007 0.0004
+Z-phase
+  2.00000e+000
+Z-modal
+  2.00000e+000
+Modal Transformation (Ti)
+  1.00000e+000
+Power-frequency source at pole 1.
+   #        vp        vm         i
+   1       0.0       0.0       0.0
+Power-frequency source at pole 3.
+   #        vp        vm         i
+   1       0.0       0.0       0.0
+Meter at pole 2, from 1 to 0, max V   = 2.995361e+004
+nr_iter = 0, nr_max = 0
+Execution time [sec]: 0.031

@@ -1,0 +1,17 @@
+1 3 100.0 1 1 0.01e-6 100.0e-6
+
+cable 1 2.0 1.5e8 0.0e3
+
+surge 100.0e3 1.2e-6 50.0e-6 0.0e-6
+pairs 1 0
+poles 2
+
+insulator 100.0e3 0.0 5.42434 8.4265e21
+pairs 1 0
+poles 2
+
+meter
+pairs 1 0
+poles 2
+
+

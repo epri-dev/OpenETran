@@ -1,0 +1,33 @@
+* here is a first line comment
+
+1 2 30.0 0 0 0.01e-6 1.0e-6
+
+cable 1 30.0 1.5e8 0.0e3
+
+* surge input here
+* second comment in a row
+
+* third comment in a row
+
+labelpole 1 riser
+labelpole 2 opntie
+
+surge -10.0e3 1.0e-6 50.0e-6 0.0e-6
+pairs 1 0
+* poles 2
+poles 1
+
+arrester 5.0e3 5.0e3 0.5 1.0e-6 0.0
+pairs 1 0
+poles 1
+
+resistor 400.0
+pairs 1 0
+poles 1
+
+meter
+pairs 1 0
+poles all
+
+
+* comment on the last line
