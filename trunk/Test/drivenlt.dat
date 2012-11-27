@@ -1,0 +1,23 @@
+3  5 45.7206 1 1 2.0E-8 2.0E-006
+
+conductor 1 9.14411 -1.21922 0.004013 0
+conductor 2 9.75369 0 0.004013 0
+conductor 3 9.14411 1.21922 0.004013 0
+
+labelphase 0 G
+labelphase 1 A
+labelphase 2 B
+labelphase 3 C
+
+steepfront 10000 1.28E-006 0.000103738 0 3.36
+pairs 2 0
+poles 3
+
+arrbez 0 33000 0.0 0 0 1
+pairs 2 0
+poles all
+
+meter
+pairs 1 0 2 0 3 0
+poles 3
+

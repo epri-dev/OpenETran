@@ -1,0 +1,20 @@
+time 1 6e-9 5e-6
+
+span 1
+cable 1 100.0 3.0e8 0.0e3
+end
+
+line 1 2 1 100.0 0 0
+end
+
+meter
+pairs 1 0
+poles all
+
+resistor 100.0
+pairs 1 0
+poles 1
+
+steepfront 2.54e3 1.82e-6 9.7e-6 0.0 1.0
+pairs 1 0
+poles 1

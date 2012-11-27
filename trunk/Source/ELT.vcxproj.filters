@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="OpenETran.c" />
+    <ClCompile Include="ChangeTimeStep.c" />
+    <ClCompile Include="OEEngine.C" />
+    <ClCompile Include="OERead.C" />
+    <ClCompile Include="PARSER.C" />
+    <ClCompile Include="WritePlotFile.c" />
+    <ClCompile Include="Components\Arrbez.c">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Arrester.c">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Capacitor.c">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Customer.c">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Ground.c">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Inductor.c">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Insulator.c">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Line.c">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\LPM.c">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Meter.c">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Monitor.c">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\PipeGap.c">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Pole.c">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Resistor.c">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Source.c">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\SteepFront.c">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Surge.c">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadUtils.C" />
+    <ClCompile Include="Components\BezUtils.c">
+      <Filter>Components</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="OEEngine.h" />
+    <ClInclude Include="OERead.h" />
+    <ClInclude Include="OETypes.h" />
+    <ClInclude Include="parser.h" />
+    <ClInclude Include="WritePlotFile.h" />
+    <ClInclude Include="Components\Surge.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Arrbez.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Arrester.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Capacitor.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Customer.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Ground.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Inductor.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Insulator.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Line.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\LPM.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Meter.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Monitor.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\PipeGap.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Pole.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Resistor.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Source.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\SteepFront.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangeTimeStep.h" />
+    <ClInclude Include="AllComponents.h" />
+    <ClInclude Include="ReadUtils.h" />
+    <ClInclude Include="Components\BezUtils.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Components">
+      <UniqueIdentifier>{2088b633-2609-414a-bc53-38b48eabda00}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="OpenETran.rc" />
+  </ItemGroup>
+</Project>

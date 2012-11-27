@@ -1,0 +1,91 @@
+  N   span     dT   Tmax
+  4  30.00 2e-008 5e-006
+Z-phase
+  4.76183e+002  1.53897e+002  1.14495e+002  1.18652e+002
+  1.53897e+002  4.79110e+002  1.53897e+002  1.20089e+002
+  1.14495e+002  1.53897e+002  4.76183e+002  1.18652e+002
+  1.18652e+002  1.20089e+002  1.18652e+002  4.62794e+002
+Z-modal
+  3.09135e+002  2.27374e-013  -3.47283e-014  -4.97380e-014
+  8.17124e-014  8.65241e+002  -1.49568e-014  0.00000e+000
+  -4.83315e-015  -5.64278e-014  3.61688e+002  -1.86397e-015
+  -7.10543e-015  0.00000e+000  4.04593e-014  3.58204e+002
+Modal Transformation (Ti)
+  4.62950e-001  4.99988e-001  -7.07107e-001  -1.88916e-001
+  -7.43996e-001  5.40392e-001  2.31700e-015  -3.92998e-001
+  4.62950e-001  4.99988e-001  7.07107e-001  -1.88916e-001
+  -1.33509e-001  4.56071e-001  -6.75388e-015  8.79872e-001
+Power-frequency source at pole 1.
+   #        vp        vm         i
+   1    3854.0   13393.5      13.9
+   2  -11097.0    -448.4     -35.0
+   3    7243.0    2396.4      23.3
+   4       0.0    2264.7      -0.5
+Power-frequency source at pole 31.
+   #        vp        vm         i
+   1    3854.0   13393.5      13.9
+   2  -11097.0    -448.4     -35.0
+   3    7243.0    2396.4      23.3
+   4       0.0    2264.7      -0.5
+Meter at pole 17, from 1 to 4, max V   = -4.240528e+004
+Meter at pole 17, from 2 to 4, max V   = 3.560392e+004
+Meter at pole 17, from 3 to 4, max V   = 4.240114e+004
+Insulator at pole 16, from 1 to 4 per-unit SI = 6.133808e-001
+Insulator at pole 16, from 2 to 4 per-unit SI = 1.194789e-001
+Insulator at pole 16, from 3 to 4 per-unit SI = 1.401082e-001
+Arrester at pole 1, from 1 to 4 discharged 9.083955e-001 Amperes.
+	Time operated: 1.640000e-006	Time of peak: 1.680000e-006
+	Charge: 6.013857e-009	Energy: -1.856005e-004
+Arrester at pole 3, from 1 to 4 discharged -1.834631e+001 Amperes.
+	Time operated: 1.440000e-006	Time of peak: 2.780000e-006
+	Charge: -1.459728e-006	Energy: 5.377639e-002
+Arrester at pole 5, from 1 to 4 discharged -9.149136e+001 Amperes.
+	Time operated: 1.240000e-006	Time of peak: 4.980000e-006
+	Charge: -1.187674e-004	Energy: 4.373471e+000
+Arrester at pole 7, from 1 to 4 discharged -9.410045e+001 Amperes.
+	Time operated: 1.040000e-006	Time of peak: 5.000000e-006
+	Charge: -9.511251e-005	Energy: 3.502984e+000
+Arrester at pole 9, from 1 to 4 discharged -2.770741e+002 Amperes.
+	Time operated: 8.400000e-007	Time of peak: 4.980000e-006
+	Charge: -6.442251e-004	Energy: 2.374418e+001
+Arrester at pole 11, from 1 to 4 discharged -4.340761e+002 Amperes.
+	Time operated: 6.400000e-007	Time of peak: 4.940000e-006
+	Charge: -1.295951e-003	Energy: 4.781675e+001
+Arrester at pole 13, from 1 to 4 discharged -7.370407e+002 Amperes.
+	Time operated: 4.400000e-007	Time of peak: 2.800000e-006
+	Charge: -2.906228e-003	Energy: 1.074892e+002
+Arrester at pole 15, from 1 to 4 discharged -4.310907e+003 Amperes.
+	Time operated: 2.400000e-007	Time of peak: 1.340000e-006
+	Charge: -1.675432e-002	Energy: 6.332248e+002
+Arrester at pole 15, from 3 to 4 discharged 1.188646e+002 Amperes.
+	Time operated: 5.800000e-007	Time of peak: 1.180000e-006
+	Charge: 1.492763e-004	Energy: 5.496671e+000
+Arrester at pole 17, from 1 to 4 discharged -4.310907e+003 Amperes.
+	Time operated: 2.400000e-007	Time of peak: 1.340000e-006
+	Charge: -1.675432e-002	Energy: 6.332248e+002
+Arrester at pole 17, from 3 to 4 discharged 1.188646e+002 Amperes.
+	Time operated: 5.800000e-007	Time of peak: 1.180000e-006
+	Charge: 1.492763e-004	Energy: 5.496671e+000
+Arrester at pole 19, from 1 to 4 discharged -7.370407e+002 Amperes.
+	Time operated: 4.400000e-007	Time of peak: 2.800000e-006
+	Charge: -2.906228e-003	Energy: 1.074892e+002
+Arrester at pole 21, from 1 to 4 discharged -4.340761e+002 Amperes.
+	Time operated: 6.400000e-007	Time of peak: 4.940000e-006
+	Charge: -1.295951e-003	Energy: 4.781675e+001
+Arrester at pole 23, from 1 to 4 discharged -2.770741e+002 Amperes.
+	Time operated: 8.400000e-007	Time of peak: 4.980000e-006
+	Charge: -6.442251e-004	Energy: 2.374418e+001
+Arrester at pole 25, from 1 to 4 discharged -9.410045e+001 Amperes.
+	Time operated: 1.040000e-006	Time of peak: 5.000000e-006
+	Charge: -9.511251e-005	Energy: 3.502984e+000
+Arrester at pole 27, from 1 to 4 discharged -9.149136e+001 Amperes.
+	Time operated: 1.240000e-006	Time of peak: 4.980000e-006
+	Charge: -1.187674e-004	Energy: 4.373471e+000
+Arrester at pole 29, from 1 to 4 discharged -1.834631e+001 Amperes.
+	Time operated: 1.440000e-006	Time of peak: 2.780000e-006
+	Charge: -1.459728e-006	Energy: 5.377639e-002
+Arrester at pole 31, from 1 to 4 discharged 9.083955e-001 Amperes.
+	Time operated: 1.640000e-006	Time of peak: 1.680000e-006
+	Charge: 6.013857e-009	Energy: -1.856005e-004
+nr_iter = 0, nr_max = 0
+Execution time [sec]: 0.015

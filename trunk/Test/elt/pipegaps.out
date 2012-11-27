@@ -1,0 +1,86 @@
+  N   span     dT   Tmax
+  2   3.00 5e-009 4e-006
+Z-phase
+  4.30055e+002  1.57258e+002
+  1.57258e+002  4.21312e+002
+Z-modal
+  5.83002e+002  -1.42109e-013
+  -1.13687e-013  2.68365e+002
+Modal Transformation (Ti)
+  7.16864e-001  -6.97213e-001
+  6.97213e-001  7.16864e-001
+Power-frequency source at pole 1.
+   #        vp        vm         i
+   1       0.0       0.0       0.0
+   2       0.0       0.0       0.0
+Power-frequency source at pole 41.
+   #        vp        vm         i
+   1       0.0       0.0       0.0
+   2       0.0       0.0       0.0
+Meter at pole 21, from 1 to 0, max V   = 1.822734e+006
+Meter at pole 21, from 1 to 2, max V   = 1.036568e+006
+Meter at pole 21, from 2 to 0, max V   = 8.258079e+005
+Meter at pole 1, from 1 to -5, max V   = 6.300527e+002
+Meter at pole 3, from 1 to -5, max V   = 6.032194e+002
+Meter at pole 5, from 1 to -5, max V   = 5.951674e+002
+Meter at pole 7, from 1 to -5, max V   = 5.939577e+002
+Meter at pole 9, from 1 to -5, max V   = 5.946474e+002
+Meter at pole 11, from 1 to -5, max V   = 5.958601e+002
+Meter at pole 13, from 1 to -5, max V   = 5.971099e+002
+Meter at pole 15, from 1 to -5, max V   = 5.989160e+002
+Meter at pole 17, from 1 to -5, max V   = 6.081952e+002
+Meter at pole 19, from 1 to -5, max V   = 6.295581e+002
+Meter at pole 21, from 1 to -5, max V   = 6.696594e+002
+Meter at pole 23, from 1 to -5, max V   = 6.295581e+002
+Meter at pole 25, from 1 to -5, max V   = 6.081952e+002
+Meter at pole 27, from 1 to -5, max V   = 5.989160e+002
+Meter at pole 29, from 1 to -5, max V   = 5.971099e+002
+Meter at pole 31, from 1 to -5, max V   = 5.958601e+002
+Meter at pole 33, from 1 to -5, max V   = 5.946474e+002
+Meter at pole 35, from 1 to -5, max V   = 5.939577e+002
+Meter at pole 37, from 1 to -5, max V   = 5.951674e+002
+Meter at pole 39, from 1 to -5, max V   = 6.032194e+002
+Meter at pole 41, from 1 to -5, max V   = 6.300527e+002
+pipegap at pole 2, from 1 to 2 discharged 6.139648e+002 Amperes.
+pipegap at pole 4, from 1 to 2 discharged 5.976617e+002 Amperes.
+pipegap at pole 6, from 1 to 2 discharged 5.941701e+002 Amperes.
+pipegap at pole 8, from 1 to 2 discharged 5.941832e+002 Amperes.
+pipegap at pole 10, from 1 to 2 discharged 5.952318e+002 Amperes.
+pipegap at pole 12, from 1 to 2 discharged 5.964887e+002 Amperes.
+pipegap at pole 14, from 1 to 2 discharged 5.977782e+002 Amperes.
+pipegap at pole 16, from 1 to 2 discharged 6.024009e+002 Amperes.
+pipegap at pole 18, from 1 to 2 discharged 6.169381e+002 Amperes.
+pipegap at pole 20, from 1 to 2 discharged 6.469333e+002 Amperes.
+pipegap at pole 22, from 1 to 2 discharged 6.469333e+002 Amperes.
+pipegap at pole 24, from 1 to 2 discharged 6.169381e+002 Amperes.
+pipegap at pole 26, from 1 to 2 discharged 6.024009e+002 Amperes.
+pipegap at pole 28, from 1 to 2 discharged 5.977782e+002 Amperes.
+pipegap at pole 30, from 1 to 2 discharged 5.964887e+002 Amperes.
+pipegap at pole 32, from 1 to 2 discharged 5.952318e+002 Amperes.
+pipegap at pole 34, from 1 to 2 discharged 5.941832e+002 Amperes.
+pipegap at pole 36, from 1 to 2 discharged 5.941701e+002 Amperes.
+pipegap at pole 38, from 1 to 2 discharged 5.976617e+002 Amperes.
+pipegap at pole 40, from 1 to 2 discharged 6.139648e+002 Amperes.
+pipegap at pole 1, from 1 to 2 discharged 6.300527e+002 Amperes.
+pipegap at pole 3, from 1 to 2 discharged 6.032194e+002 Amperes.
+pipegap at pole 5, from 1 to 2 discharged 5.951674e+002 Amperes.
+pipegap at pole 7, from 1 to 2 discharged 5.939577e+002 Amperes.
+pipegap at pole 9, from 1 to 2 discharged 5.946474e+002 Amperes.
+pipegap at pole 11, from 1 to 2 discharged 5.958601e+002 Amperes.
+pipegap at pole 13, from 1 to 2 discharged 5.971099e+002 Amperes.
+pipegap at pole 15, from 1 to 2 discharged 5.989160e+002 Amperes.
+pipegap at pole 17, from 1 to 2 discharged 6.081952e+002 Amperes.
+pipegap at pole 19, from 1 to 2 discharged 6.295581e+002 Amperes.
+pipegap at pole 21, from 1 to 2 discharged 6.696594e+002 Amperes.
+pipegap at pole 23, from 1 to 2 discharged 6.295581e+002 Amperes.
+pipegap at pole 25, from 1 to 2 discharged 6.081952e+002 Amperes.
+pipegap at pole 27, from 1 to 2 discharged 5.989160e+002 Amperes.
+pipegap at pole 29, from 1 to 2 discharged 5.971099e+002 Amperes.
+pipegap at pole 31, from 1 to 2 discharged 5.958601e+002 Amperes.
+pipegap at pole 33, from 1 to 2 discharged 5.946474e+002 Amperes.
+pipegap at pole 35, from 1 to 2 discharged 5.939577e+002 Amperes.
+pipegap at pole 37, from 1 to 2 discharged 5.951674e+002 Amperes.
+pipegap at pole 39, from 1 to 2 discharged 6.032194e+002 Amperes.
+pipegap at pole 41, from 1 to 2 discharged 6.300527e+002 Amperes.
+nr_iter = 0, nr_max = 0
+Execution time [sec]: 0.015

@@ -1,0 +1,36 @@
+2 5 30.0 1 1 0.05e-6 15.0e-6
+
+conductor 1 10.0 -1.0 0.00715 0.0e3
+conductor 2 10.0  1.0 0.00715 0.0e3
+
+surge -10.0e3 1.2e-6 50.0e-6 0.0e-6
+pairs 1 0
+poles 3
+
+labelphase 0 G
+labelphase 1 A
+labelphase 2 N
+
+labelpole 1 2L
+labelpole 2 1L
+labelpole 3 0
+labelpole 4 1R
+labelpole 5 2R
+
+ground -10.0 100.0 400.0e6 1.5e-6 10.0
+pairs 2 0
+poles all
+
+customer 10.0 100.0 400.0e6 1.5e-6 2.0 115.0 0.2 7.0e-6 7.0e-6 1.8e-6 0.00409 0.00409 0.01072 0.01224 20.0
+pairs 1 2
+poles 3
+
+arrester -40.0e3 40.0e3 0.5 1.0e-6 0.0
+pairs 1 2
+poles 3
+
+meter
+pairs 1 0 2 0 1 2
+poles 3
+
+

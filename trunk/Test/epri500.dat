@@ -1,0 +1,97 @@
+* incoming backflash for the EPRI 500-kV training example
+
+time 1 6e-9 40e-6
+
+* network definition
+
+span 1
+cable 1 355.0 3.0e8 -371.0e3
+end
+* end
+
+* incoming line with surge
+line  1  2 1 914.0 0 0
+* ring bus
+line  2  3 1  20.0 0 0
+line  3  4 1  15.0 0 0
+line  4  5 1  15.0 0 0
+line  5  6 1  30.0 0 0
+line  6  7 1  15.0 0 0
+line  7  8 1  15.0 0 0
+line  8  9 1  15.0 0 0
+line  9 10 1  15.0 0 0
+line 10 11 1  35.0 0 0
+line 11 12 1  15.0 0 0
+line 12 13 1  15.0 0 0
+line 13 14 1  50.0 0 0
+line 14 15 1 130.0 0 0
+line 15 16 1  70.0 0 0
+line 16 17 1  15.0 0 0
+line 17  2 1  30.0 0 0
+* feed to xfmr/generator
+line 10 18 1 100.0 0 0
+line 18 19 1 900.0 0 0
+end
+
+labelphase 0 G
+labelphase 1 A
+
+labelpole 1 surge
+labelpole 2 ln1
+* labelpole 3
+labelpole 4 BrkrA
+* labelpole 5
+labelpole 6 ln2
+* labelpole 7
+labelpole 8 BrkrC
+* labelpole 9
+* labelpole 10
+* labelpole 11
+labelpole 12 BrkrD
+* labelpole 13
+labelpole 14 ln3
+* labelpole 15
+labelpole 16 BrkrB
+* labelpole 17
+* labelpole 18
+labelpole 19 xfmr
+
+* voltage output at breaker and xfmr locations, incoming surge
+meter
+pairs 1 0
+poles 1 2 4 8 12 16 19
+
+* other lines, easier to model here as resistors
+resistor 355.0
+pairs 1 0
+poles 6 14
+
+* source equivalent
+
+resistor 19.0
+pairs 1 0
+poles 1
+
+steepfront 78.95e3 1.36e-6 11.64e-6 1.0e-7 1.02
+pairs 1 0
+poles 1
+
+* transformers and arresters
+
+capacitor 2e-9
+pairs 1 0
+poles 19
+
+* the 931 discharge is according to training manual, no
+*  turnon conductance but includes lead inductance
+* the 912 discharge model is using Cigre model
+* arrbez 0.0 931.0e3 0.0 1.18e-6 4.0 1
+arrbez 0.0 912.0e3 0.051 1.18e-6 4.0 1
+pairs 1 0
+poles 19
+
+* insulators at breaker and xfmr locations
+
+lpm 1800.0e3 551.3e3 1.831e-6
+pairs 1 0
+poles 4 8 12 16 19

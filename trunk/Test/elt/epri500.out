@@ -1,0 +1,32 @@
+  N   span     dT   Tmax
+  1   0.00 6e-009 4e-005
+Z-phase
+  3.55000e+002
+Z-modal
+  3.55000e+002
+Modal Transformation (Ti)
+  1.00000e+000
+Power-frequency source at pole 6.
+   #        vp        vm         i
+   1 -371000.0 -371000.0   -1045.1
+Power-frequency source at pole 14.
+   #        vp        vm         i
+   1 -371000.0 -371000.0   -1045.1
+Power-frequency source at pole 1.
+   #        vp        vm         i
+   1 -371000.0 -371000.0  -19526.3
+Meter at pole 1, from 1 to 0, max V   = 1.047516e+006
+Meter at pole 2, from 1 to 0, max V   = 5.317161e+005
+Meter at pole 4, from 1 to 0, max V   = 5.233453e+005
+Meter at pole 8, from 1 to 0, max V   = 5.691786e+005
+Meter at pole 12, from 1 to 0, max V   = 5.728369e+005
+Meter at pole 16, from 1 to 0, max V   = 5.772754e+005
+Meter at pole 19, from 1 to 0, max V   = 8.336524e+005
+Meter at pole 19, arrester max I       = 1.068410e+003
+insulator at pole 4, from 1 to 0 per-unit SI = 2.779222e-001
+insulator at pole 8, from 1 to 0 per-unit SI = 2.926825e-001
+insulator at pole 12, from 1 to 0 per-unit SI = 2.961182e-001
+insulator at pole 16, from 1 to 0 per-unit SI = 2.840216e-001
+insulator at pole 19, from 1 to 0 per-unit SI = 4.328866e-001
+nr_iter = 15583, nr_max = 6
+Execution time [sec]: 0.156

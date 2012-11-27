@@ -1,0 +1,18 @@
+  N   span     dT   Tmax
+  1 100.00 1e-008 0.0001
+Z-phase
+  2.00000e+000
+Z-modal
+  2.00000e+000
+Modal Transformation (Ti)
+  1.00000e+000
+Power-frequency source at pole 1.
+   #        vp        vm         i
+   1       0.0       0.0       0.0
+Power-frequency source at pole 3.
+   #        vp        vm         i
+   1       0.0       0.0       0.0
+Meter at pole 2, from 1 to 0, max V   = 9.999931e+004
+Insulator at pole 2, from 1 to 0 flashed over at 9.710000e-006 seconds
+nr_iter = 0, nr_max = 0
+Execution time [sec]: 0.078
