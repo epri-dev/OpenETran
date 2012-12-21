@@ -186,6 +186,10 @@ We stop when there are no more tokens in the buffer */
 			(void) read_lpm ();
 		} else if (!strcmp (p, steepfront_token)) {
 			(void) read_steepfront ();
+		} else if (!strcmp (p, newarr_token)) {
+			(void) read_newarr ();
+		} else if (!strcmp (p, transformer_token)) {
+			(void) read_transformer ();
 		}
 	}
 	return (0);

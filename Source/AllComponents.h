@@ -39,4 +39,7 @@
 #include "Components/SteepFront.h"
 #include "Components/Surge.h"
 
+#include "Components/NewArr.h"
+#include "Components/Transformer.h"
+
 #endif
