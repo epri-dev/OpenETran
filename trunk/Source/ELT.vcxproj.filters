@@ -62,6 +62,12 @@
     <ClCompile Include="Components\BezUtils.c">
       <Filter>Components</Filter>
     </ClCompile>
+    <ClCompile Include="Components\NewArr.c">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Transformer.c">
+      <Filter>Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OEEngine.h" />
@@ -127,6 +133,12 @@
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Components\NewArr.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Transformer.h">
+      <Filter>Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Components">
