@@ -53,8 +53,10 @@ struct OutputFileHeader
 //    time_t      tStart;
 //    time_t      tFinish;
 // sizeof time_t increased in VS2005
-    _int32      tStart;
-    _int32      tFinish;
+//    _int32      tStart;
+//    _int32      tFinish;
+    int         tStart;
+    int         tFinish;
 
     double      dTStart;
     double      dTFinish;

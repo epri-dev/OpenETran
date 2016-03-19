@@ -32,7 +32,7 @@ int update_assignments (int i, int j, int k);
 int next_assignment (int *i, int *j, int *k);
 
 struct pole *new_pole (int location);
-void terminate_pole (struct pole *ptr, struct span *defn);
+//void terminate_pole (struct pole *ptr, struct span *defn);
 
 int read_pole_label (void);
 int read_phase_label (void);
