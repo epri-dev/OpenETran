@@ -38,7 +38,7 @@ Called from the driver and xfmr modules. */
 #include "../WritePlotFile.h"
 #include "Pole.h"
 #include "Arrester.h"
-#include "Arrbez.h"
+#include "ArrBez.h"
 #include "Customer.h"
 #include "Ground.h"
 #include "PipeGap.h"
