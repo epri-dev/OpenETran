@@ -33,7 +33,7 @@
 #include "Pole.h"
 #include "Meter.h"
 #include "../WritePlotFile.h"
-#include "Arrbez.h"
+#include "ArrBez.h"
 
 char arrbez_token[] = "arrbez";
 
