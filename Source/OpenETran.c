@@ -19,10 +19,10 @@
   along with OpenETran.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #include "OETypes.h"
 
@@ -49,7 +49,6 @@ int main (int argc, char *argv[])
 {
 	LPLTINSTRUCT  lp_in;
 	LPLTOUTSTRUCT lp_out;
-	int            rValue;
 	FILE *fp;
 	char basename [MAXPATHLEN];
 	char inputname [MAXPATHLEN];
@@ -117,7 +116,7 @@ int main (int argc, char *argv[])
 			exit (EXIT_FAILURE);
 		}
 	}
-	if (lp_in = (LPLTINSTRUCT) malloc (sizeof *lp_in)) {
+	if ((lp_in = (LPLTINSTRUCT) malloc (sizeof *lp_in))) {
 		lp_in->stop_on_flashover = stop_on_flashover;
 		lp_in->iteration_mode = iteration_mode;
 		lp_in->fp = fp;
@@ -138,9 +137,8 @@ int main (int argc, char *argv[])
 		}
 	}
 	
-	rValue = 0;
 	if ((lp_out = (LPLTOUTSTRUCT) malloc (sizeof *lp_out))) {
-		rValue = lt (lp_in, lp_out);
+		lt (lp_in, lp_out);
 	} else {
 		printf ("failed to allocate output storage\n");
 		exit (EXIT_FAILURE);
@@ -212,7 +210,8 @@ void oe_exit (int i)
 		logfp = NULL;
 	}
 	if (i) {
-		MessageBox (NULL, err_msg[i], "OpenETran Error", MB_ICONEXCLAMATION);
+/*		MessageBox (NULL, err_msg[i], "OpenETran Error", MB_ICONEXCLAMATION); */
+        fprintf (stderr, "OpenEtran Error: %s\n", err_msg[i]);
 	}
 	exit (i);
 }

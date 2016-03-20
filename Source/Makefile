@@ -33,8 +33,8 @@ OBJ=$(SRC:.c=.o)
 
 CC=gcc
 CFLAGS=-Wall -O3 -I/gsl/gsl-2.1
-LDFLAGS=-L/gsl/gsl-2.1/.libs -L/gsl/gsl-2.1/cblas/.libs -Bstatic -llibgsl -llibgslcblas
-RM=rm
+LDFLAGS=-L/gsl/gsl-2.1/.libs -L/gsl/gsl-2.1/cblas/.libs -static -lgsl -lgslcblas -lm
+RM=del
 
 %.o : %.c
 	$(CC) $(CFLAGS) -o $@ -c $<

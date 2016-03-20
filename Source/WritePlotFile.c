@@ -18,7 +18,6 @@
   along with OpenETran.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -120,13 +119,13 @@ static void SortMetersAndFigureIndices (struct meter *head)
 	struct meter *next_mtr;
 
 /* build a new list of meter in two passes, first for voltage, then current */
-	while (ptr = ptr->next) {
+	while ((ptr = ptr->next)) {
 		if (ptr->to >= 0) {
 			next_mtr = CopyMeter (ptr, &first_new, &last_mtr);
 		}
 	}
 	ptr = head;
-	while (ptr = ptr->next) {
+	while ((ptr = ptr->next)) {
 		if (ptr->to < 0) {
 			next_mtr = CopyMeter (ptr, &first_new, &last_mtr);
 		}
@@ -183,7 +182,7 @@ void InitializeSTOOutput (struct meter *head, double dT, double Tmax)
 
 /* figure out the file positions */
 
-	while (ptr = ptr->next) {
+	while ((ptr = ptr->next)) {
 		if (ptr->to >= 0) {
 			++ofh.nVoltage;
 		} else {
@@ -219,7 +218,7 @@ void WriteSTOHeader (struct meter *head)
 	char buf [STO_INAME_SIZE + STO_VNAME_SIZE];
 	
     fwrite (&ofh, sizeof ofh, 1, bp);
-	while (ptr = ptr->next) {
+	while ((ptr = ptr->next)) {
 		memset (buf, ' ', sizeof buf);
 		if (count < ofh.nVoltage) {
 			sprintf (buf, "V %s_%s%s",
@@ -288,7 +287,7 @@ void WriteSTOTimeStep (struct meter *head, double t)
 	struct meter *ptr = head;
 
 	fwrite (&t, sizeof t, 1, bp);
-	while (ptr = ptr->next) {
+	while ((ptr = ptr->next)) {
 		volts = *(ptr->v_from) - *(ptr->v_to);
 		if (fabs (volts) > fabs (ptr->vmax)) {
 			ptr->vmax = volts;
@@ -304,7 +303,7 @@ void WriteTextHeader (struct meter *head)
 	struct meter *ptr = head;
 
 	fprintf (bp, "Time%c", delim);
-	while (ptr = ptr->next) {
+	while ((ptr = ptr->next)) {
 		if (ptr->to >= 0) {
 			fprintf (bp, "P%d:%d-%d", ptr->at, ptr->from, ptr->to);
 		} else if (ptr->to == IARR_FLAG) {
@@ -332,7 +331,7 @@ void WriteTextTimeStep (struct meter *head, double t)
 	struct meter *ptr = head;
 
 	fprintf (bp, "%e%c", t, delim);
-	while (ptr = ptr->next) {
+	while ((ptr = ptr->next)) {
 		volts = *(ptr->v_from) - *(ptr->v_to);
 		if (fabs (volts) > fabs (ptr->vmax)) {
 			ptr->vmax = volts;

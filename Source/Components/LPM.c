@@ -18,7 +18,6 @@
   along with OpenETran.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -31,6 +30,7 @@
 #include "../OETypes.h"
 #include "../Parser.h"
 #include "../ReadUtils.h"
+#include "Meter.h"
 #include "../WritePlotFile.h"
 #include "../ChangeTimeStep.h"
 #include "Pole.h"
@@ -43,7 +43,6 @@
 #define MIN_SCALE      0.01
 
 static double lpm_si_counter = 0.0;  /* for progress feedback to SDW */
-static double lpm_model_count = 0.0;  /* for progress feedback to SDW */
 
 char lpm_token[] = "lpm";
 
@@ -51,7 +50,7 @@ struct lpm *lpm_head, *lpm_ptr;
 
 int init_lpm_list (void)
 {
-    if (lpm_head = (struct lpm *) malloc (sizeof *lpm_head)) {
+    if ((lpm_head = (struct lpm *) malloc (sizeof *lpm_head))) {
         lpm_head->next = NULL;
         lpm_head->pts = NULL;
         lpm_ptr = lpm_head;
@@ -65,7 +64,7 @@ int init_lpm_list (void)
 void do_all_lpms (void (*verb) (struct lpm *))
 {
     lpm_ptr = lpm_head;
-    while (lpm_ptr = lpm_ptr->next) {
+    while ((lpm_ptr = lpm_ptr->next)) {
         verb (lpm_ptr);
     }
 }
@@ -90,7 +89,7 @@ int read_lpm (void)
     (void) read_poles ();
     (void) reset_assignments ();
     while (!next_assignment (&i, &j, &k)) {
-        if (ptr = (struct lpm *) malloc (sizeof *ptr)) {
+        if ((ptr = (struct lpm *) malloc (sizeof *ptr))) {
             ptr->cfo = f_cfo;
             ptr->e0 = f_e0;
             ptr->k = f_k;
@@ -146,9 +145,9 @@ void move_lpm (struct lpm *ptr, int i)
 
 static int lpm_flashes_over (struct lpm *ptr, double scale, int nsteps)
 {
-    int i, sign;
+    int i, sign=0;
     double volts, ds, ds2;
-    double x, dx;
+    double x=1.0, dx;
     double xpos = ptr->d;
     double xneg = ptr->d;
 

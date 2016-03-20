@@ -22,11 +22,11 @@
 LPDW's transient simulation engine, based on H. W. Dommel's IEEE papers.
 Called from the driver and xfmr modules. */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
+#include <string.h>
 #include <gsl/gsl_vector.h>
 #include <gsl/gsl_matrix.h>
 #include <gsl/gsl_blas.h>
@@ -36,6 +36,7 @@ Called from the driver and xfmr modules. */
 #include "../OETypes.h"
 #include "../Parser.h"
 #include "../ReadUtils.h"
+#include "Meter.h"
 #include "../WritePlotFile.h"
 #include "../ChangeTimeStep.h"
 #include "Pole.h"
@@ -76,7 +77,7 @@ void insert_line (int left_pole, int right_pole, struct span *defn, int travel_s
 {
 	struct line *ptr;
 
-	if ((ptr = (struct line *) malloc (sizeof *ptr)) != NULL) {
+	if (((ptr = (struct line *) malloc (sizeof *ptr)) != NULL)) {
 		ptr->left = find_pole (left_pole); /* terminal pole pointers */
 		if (!ptr->left) oe_exit (ERR_BAD_POLE);
 		ptr->right = find_pole (right_pole);
@@ -255,7 +256,7 @@ void print_line_history (struct line *ptr)
 
 int init_span_list (void)
 {
-    if (span_head = (struct span *) malloc (sizeof *span_head)) {
+    if ((span_head = (struct span *) malloc (sizeof *span_head))) {
         span_head->next = NULL;
         span_head->Zm = NULL;
         span_head->Ym = NULL;
@@ -311,11 +312,11 @@ void read_spans (void)
     char *p;
     int span_id;
 
-    while ((p = first_token()) != NULL && !strcmp (p, span_token)) {
+    while (((p = first_token()) != NULL) && !strcmp (p, span_token)) {
         next_int (&span_id);
         ptr = find_span (span_id);
         if (!ptr) {
-            if ((ptr = (struct span *) malloc (sizeof *ptr)) != NULL) {
+            if (((ptr = (struct span *) malloc (sizeof *ptr)) != NULL)) {
                 ptr->Zm = NULL;
                 ptr->Ym = NULL;
                 ptr->Zp = NULL;
@@ -354,7 +355,7 @@ void read_lines (void)
     struct line *ptr;
     struct span *defn;
 
-    while ((p = first_token()) != NULL && !strcmp (p, line_token)) {
+    while (((p = first_token()) != NULL) && !strcmp (p, line_token)) {
         next_int (&from);
         next_int (&to);
         next_int (&span_id);
@@ -385,7 +386,7 @@ void read_lines (void)
         }
         left->solve = TRUE;
         right->solve = TRUE;
-        if ((ptr = (struct line *) malloc (sizeof *ptr)) != NULL) {
+        if (((ptr = (struct line *) malloc (sizeof *ptr)) != NULL)) {
             ptr->left = left;
             ptr->right = right;
             ptr->steps = ptr->alloc_steps = line_steps;
@@ -659,14 +660,14 @@ void reset_lines (void)
 void do_all_lines (void (*verb) (struct line *))
 {
 	line_ptr = line_head;
-	while ((line_ptr = line_ptr->next) != NULL) {
+	while (((line_ptr = line_ptr->next) != NULL)) {
 		verb (line_ptr);
 	}
 }
 
 int init_line_list (void)
 {
-	if ((line_head = (struct line *) malloc (sizeof *line_head)) != NULL) {
+	if (((line_head = (struct line *) malloc (sizeof *line_head)) != NULL)) {
 		line_head->next = NULL;
 		line_head->defn = NULL;
 		line_head->hist_left = NULL;

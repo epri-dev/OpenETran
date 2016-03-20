@@ -21,6 +21,14 @@
 #ifndef oetypes_included
 #define oetypes_included
 
+#ifndef TRUE
+#define TRUE 1
+#endif
+
+#ifndef FALSE
+#define FALSE 0
+#endif
+
 /*    defined error codes for oe_exit.  */
 
 #define	ERR_OVERLAP		     1

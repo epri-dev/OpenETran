@@ -18,7 +18,6 @@
   along with OpenETran.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -31,9 +30,9 @@
 #include "../OETypes.h"
 #include "../Parser.h"
 #include "../ReadUtils.h"
+#include "Meter.h"
 #include "../WritePlotFile.h"
 #include "Pole.h"
-#include "Meter.h"
 #include "PipeGap.h"
 
 char pipegap_token[] = "pipegap";
@@ -42,7 +41,7 @@ struct pipegap *pipegap_head, *pipegap_ptr;
 
 int init_pipegap_list (void)
 {
-    if (pipegap_head = (struct pipegap *) malloc (sizeof *pipegap_head)) {
+    if ((pipegap_head = (struct pipegap *) malloc (sizeof *pipegap_head))) {
         pipegap_head->next = NULL;
         pipegap_ptr = pipegap_head;
         return (0);
@@ -55,7 +54,7 @@ int init_pipegap_list (void)
 void do_all_pipegaps (void (*verb) (struct pipegap *))
 {
     pipegap_ptr = pipegap_head;
-    while (pipegap_ptr = pipegap_ptr->next) {
+    while ((pipegap_ptr = pipegap_ptr->next)) {
         verb (pipegap_ptr);
     }
 }
@@ -63,7 +62,7 @@ void do_all_pipegaps (void (*verb) (struct pipegap *))
 struct pipegap *find_pipegap (int at, int from, int to)
 {
 	pipegap_ptr = pipegap_head;
-	while ((pipegap_ptr = pipegap_ptr->next) != NULL) {
+	while (((pipegap_ptr = pipegap_ptr->next) != NULL)) {
 		if ((pipegap_ptr->parent->location == at) &&
 			(pipegap_ptr->from == from) &&(pipegap_ptr->from == from)) return pipegap_ptr;
 	}
@@ -165,7 +164,7 @@ int read_pipegap (void)
     (void) read_poles ();
     (void) reset_assignments ();
     while (!next_assignment (&i, &j, &k)) {
-        if (ptr = (struct pipegap *) malloc (sizeof *ptr)) {
+        if ((ptr = (struct pipegap *) malloc (sizeof *ptr))) {
             ptr->v_knee = f_knee;
             ptr->r_slope = f_r;
             ptr->i_bias = f_knee / f_r;

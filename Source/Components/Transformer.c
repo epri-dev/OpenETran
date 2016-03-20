@@ -22,7 +22,6 @@
 LPDW's transient simulation engine, based on H. W. Dommel's IEEE papers.
 Called from the driver and xfmr modules. */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -103,7 +102,7 @@ void init_transformer_history (struct transformer *ptr)
 
 int init_transformer_list (void)
 {
-	if ((transformer_head = (struct transformer *) malloc (sizeof *transformer_head)) != NULL) {
+	if (((transformer_head = (struct transformer *) malloc (sizeof *transformer_head)) != NULL)) {
 		transformer_head->next = NULL;
 		transformer_ptr = transformer_head;
 		return (0);
@@ -139,7 +138,7 @@ int read_transformer (void)
 	(void) read_poles ();
 	(void) reset_assignments ();
 	while (!next_assignment (&i, &j, &k)) {
-		if ((ptr = (struct transformer *) malloc (sizeof *ptr)) != NULL) {
+		if (((ptr = (struct transformer *) malloc (sizeof *ptr)) != NULL)) {
 			ptr->res = res;
 			ptr->ind = ind;
 			ptr->y = f_y;

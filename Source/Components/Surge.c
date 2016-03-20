@@ -22,7 +22,6 @@
 LPDW's transient simulation engine, based on H. W. Dommel's IEEE papers.
 Called from the driver and xfmr modules. */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -64,7 +63,7 @@ void inject_surge (struct surge *ptr)
 
 int init_surge_list (void)
 {
-	if ((surge_head = (struct surge *) malloc (sizeof *surge_head)) != NULL) {
+	if (((surge_head = (struct surge *) malloc (sizeof *surge_head)) != NULL)) {
 		surge_head->next = NULL;
 		surge_ptr = surge_head;
 		return (0);
@@ -98,7 +97,7 @@ int read_surge (void)
 	(void) read_poles ();
 	(void) reset_assignments ();
 	while (!next_assignment (&i, &j, &k)) {
-		if ((ptr = (struct surge *) malloc (sizeof *ptr)) != NULL) {
+		if (((ptr = (struct surge *) malloc (sizeof *ptr)) != NULL)) {
 			move_surge (ptr, i, j, k, fpeak, ftf, ftt, ftstart);
 			ptr->next = NULL;
 			surge_ptr->next = ptr;

@@ -22,7 +22,6 @@
 LPDW's transient simulation engine, based on H. W. Dommel's IEEE papers.
 Called from the driver and xfmr modules. */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -103,7 +102,7 @@ void init_inductor_history (struct inductor *ptr)
 
 int init_inductor_list (void)
 {
-	if ((inductor_head = (struct inductor *) malloc (sizeof *inductor_head)) != NULL) {
+	if (((inductor_head = (struct inductor *) malloc (sizeof *inductor_head)) != NULL)) {
 		inductor_head->next = NULL;
 		inductor_ptr = inductor_head;
 		return (0);
@@ -116,7 +115,7 @@ int init_inductor_list (void)
 void do_all_inductors (void (*verb) (struct inductor *))
 {
 	inductor_ptr = inductor_head;
-	while ((inductor_ptr = inductor_ptr->next) != NULL) {
+	while (((inductor_ptr = inductor_ptr->next) != NULL)) {
 		verb (inductor_ptr);
 	}
 }
@@ -139,7 +138,7 @@ int read_inductor (void)
 	(void) read_poles ();
 	(void) reset_assignments ();
 	while (!next_assignment (&i, &j, &k)) {
-		if ((ptr = (struct inductor *) malloc (sizeof *ptr)) != NULL) {
+		if (((ptr = (struct inductor *) malloc (sizeof *ptr)) != NULL)) {
 			ptr->res = res;
 			ptr->ind = ind;
 			ptr->y = f_y;

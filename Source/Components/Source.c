@@ -22,7 +22,6 @@
 LPDW's transient simulation engine, based on H. W. Dommel's IEEE papers.
 Called from the driver and xfmr modules. */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -35,6 +34,7 @@ Called from the driver and xfmr modules. */
 #include "../OETypes.h"
 #include "../Parser.h"
 #include "../ReadUtils.h"
+#include "Meter.h"
 #include "../WritePlotFile.h"
 #include "Pole.h"
 #include "Line.h"
@@ -70,7 +70,7 @@ void inject_source (struct source *ptr)
 
 int init_source_list (void)
 {
-	if ((source_head = (struct source *) malloc (sizeof *source_head)) != NULL) {
+	if (((source_head = (struct source *) malloc (sizeof *source_head)) != NULL)) {
 		source_head->next = NULL;
 		source_head->val = NULL;
 		source_ptr = source_head;

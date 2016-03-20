@@ -22,7 +22,6 @@
 LPDW's transient simulation engine, based on H. W. Dommel's IEEE papers.
 Called from the driver and xfmr modules. */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -35,6 +34,7 @@ Called from the driver and xfmr modules. */
 #include "../OETypes.h"
 #include "../Parser.h"
 #include "../ReadUtils.h"
+#include "Meter.h"
 #include "../WritePlotFile.h"
 #include "../ChangeTimeStep.h"
 #include "Pole.h"
@@ -125,7 +125,7 @@ void check_insulator (struct insulator *ptr)
 
 int init_insulator_list (void)
 {
-	if ((insulator_head = (struct insulator *) malloc (sizeof *insulator_head)) != NULL) {
+	if (((insulator_head = (struct insulator *) malloc (sizeof *insulator_head)) != NULL)) {
 		insulator_head->next = NULL;
 		insulator_ptr = insulator_head;
 		return (0);
@@ -138,7 +138,7 @@ int init_insulator_list (void)
 void do_all_insulators (void (*verb) (struct insulator *))
 {
 	insulator_ptr = insulator_head;
-	while ((insulator_ptr = insulator_ptr->next) != NULL) {
+	while (((insulator_ptr = insulator_ptr->next) != NULL)) {
 		verb (insulator_ptr);
 	}
 }
@@ -164,7 +164,7 @@ int read_insulator (void)
 	(void) read_poles ();
 	(void) reset_assignments ();
 	while (!next_assignment (&i, &j, &k)) {
-		if ((ptr = (struct insulator *) malloc (sizeof *ptr)) != NULL) {
+		if (((ptr = (struct insulator *) malloc (sizeof *ptr)) != NULL)) {
 			ptr->cfo = f_cfo;
 			ptr->de_max = f_de;
 			ptr->vb = f_vb;

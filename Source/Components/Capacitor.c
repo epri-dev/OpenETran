@@ -22,7 +22,6 @@
 LPDW's transient simulation engine, based on H. W. Dommel's IEEE papers.
 Called from the driver and xfmr modules. */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -87,7 +86,7 @@ void init_capacitor_history (struct capacitor *ptr)
 
 int init_capacitor_list (void)
 {
-	if ((capacitor_head = (struct capacitor *) malloc (sizeof *capacitor_head)) != NULL) {
+	if (((capacitor_head = (struct capacitor *) malloc (sizeof *capacitor_head)) != NULL)) {
 		capacitor_head->next = NULL;
 		capacitor_ptr = capacitor_head;
 		return (0);
@@ -100,7 +99,7 @@ int init_capacitor_list (void)
 void do_all_capacitors (void (*verb) (struct capacitor *))
 {
 	capacitor_ptr = capacitor_head;
-	while ((capacitor_ptr = capacitor_ptr->next) != NULL) {
+	while (((capacitor_ptr = capacitor_ptr->next) != NULL)) {
 		verb (capacitor_ptr);
 	}
 }
@@ -121,7 +120,7 @@ int read_capacitor (void)
 	(void) read_poles ();
 	(void) reset_assignments ();
 	while (!next_assignment (&i, &j, &k)) {
-		if ((ptr = (struct capacitor *) malloc (sizeof *ptr)) != NULL) {
+		if (((ptr = (struct capacitor *) malloc (sizeof *ptr)) != NULL)) {
 			ptr->y = f_y;
 			ptr->yc = f_yc;
 			reset_capacitor (ptr);

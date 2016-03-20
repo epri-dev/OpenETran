@@ -26,23 +26,6 @@ extern char node_token[];
 extern char cable_token[];
 extern char line_token[];
 
-/* These matrices are all dimensioned number_of_conductors x number_of_conductors. */
-struct span {
-	gsl_matrix *Zm; /* modal surge impedances */
-	gsl_matrix *Ym; /* inverse of Zm */
-	gsl_matrix *Zp; /* phase surge impedances */
-	gsl_matrix *Yp; /* inverse of Zp */
-	gsl_matrix *Ti; /* modal transformation matrices */
-	gsl_matrix *Tit;
-	gsl_matrix *Tv;
-	gsl_matrix *Tvt;
-	gsl_vector *vm; /* vector of offset voltages at a pole, modal coordinates */
-	gsl_vector *vp_offset; /* vector of offset voltages at a pole, phase coordinates */
-	double wave_velocity;
-	int span_id;
-	struct span *next;
-};
-
 struct line {
 	struct span *defn;   /* has the impedances and transformations */
 						 /* hist matrices dimensioned number_of_conductors x steps. */
