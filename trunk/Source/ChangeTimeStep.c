@@ -21,7 +21,6 @@
 /* This file contains functions to increase the time step during
 a simulation. */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -160,15 +159,15 @@ void change_arrester_time_step (struct arrester *ptr)
 
 void restore_arrester_time_step (struct arrester *ptr)
 {
-	double old_y = ptr->y;
+//	double old_y = ptr->y;
 
 	ptr->zl *= (second_dT / first_dT);
 	ptr->y = 1.0 / (ptr->r_slope + ptr->zl);
 	ptr->yr = ptr->y * ptr->r_slope;
 	ptr->yzl = ptr->y * ptr->zl;
-	if (ptr->conducting) {
+//	if (ptr->conducting) {
 //		add_y (ptr->parent, ptr->from, ptr->to, ptr->y - old_y);
-	}
+//	}
 }
 
 /* capacitor functions to support second_dT */

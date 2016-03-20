@@ -18,7 +18,6 @@
   along with OpenETran.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -29,13 +28,12 @@
 #include <gsl/gsl_linalg.h>
 
 #include "../OETypes.h"
+#include "Meter.h"
 #include "../WritePlotFile.h"
 #include "../Parser.h"
 #include "../ReadUtils.h"
 #include "Pole.h"
-#include "Meter.h"
 
-/* Shimeng - this is temporarily needed for some enum definitions */
 #include "ArrBez.h"
 
 #include "NewArr.h"
@@ -49,108 +47,6 @@ char newarr_token[] = "newarr";
 
 #define MAX_ARR_PTS  20  /* >= number of rows in double[][3] arrays below */
 
-static double fow_54_360[][3] = {
-    0.00, 0.000, 0.000,
-    0.01, 0.500, 0.500,
-    1000.0, 0.927, 0.958,
-    2000.0, 0.972, 0.996,
-    5000.0, 1.044, 1.070,
-    10000.0, 1.117, 1.131,
-    15000.0, 1.167, 1.200,
-    20000.0, 1.209, 1.254,
-    40000.0, 1.318, 1.414
-};
-
-static double impulse_54_360[][3] = {
-    0.00, 0.000, 0.000,
-    0.01, 0.500, 0.500,
-    1.0, 0.647, 0.691,
-    10.0, 0.682, 0.725,
-    100.0, 0.734, 0.769,
-    500.0, 0.790, 0.819,
-    1000.0, 0.820, 0.847,
-    2000.0, 0.860, 0.881,
-    5000.0, 0.923, 0.946,
-    10000.0, 0.988, 1.000,
-    15000.0, 1.032, 1.061,
-    20000.0, 1.069, 1.109,
-    40000.0, 1.166, 1.251
-};
-
-static double short_54_360[][3] = {
-    0.00, 0.000, 0.000,
-    0.01, 0.500, 0.500,
-    1.0, 0.645, 0.689,
-    10.0, 0.674, 0.717,
-    100.0, 0.722, 0.756,
-    500.0, 0.775, 0.803,
-    1000.0, 0.802, 0.828,
-    2000.0, 0.839, 0.859
-};
-
-static double long_54_360[][3] = {
-    0.00, 0.000, 0.000,
-    0.01, 0.500, 0.500,
-    1.0, 0.640, 0.684,
-    10.0, 0.671, 0.713,
-    100.0, 0.716, 0.750,
-    500.0, 0.762, 0.790,
-    1000.0, 0.787, 0.813,
-    2000.0, 0.839, 0.859
-};
-
-static double fow_2pt7_48[][3] = {
-    0.00, 0.000, 0.000,
-    0.01, 0.500, 0.500,
-    1000.0, 0.891, 0.933,
-    2000.0, 0.939, 0.977,
-    5000.0, 1.013, 1.061,
-    10000.0, 1.110, 1.132,
-    15000.0, 1.168, 1.210,
-    20000.0, 1.210, 1.271,
-    40000.0, 1.329, 1.458
-};
-
-static double impulse_2pt7_48[][3] = {
-    0.00, 0.000, 0.000,
-    0.01, 0.500, 0.500,
-    1.0, 0.608, 0.663,
-    10.0, 0.645, 0.696,
-    100.0, 0.695, 0.743,
-    500.0, 0.754, 0.794,
-    1000.0, 0.787, 0.824,
-    2000.0, 0.829, 0.863,
-    5000.0, 0.895, 0.937,
-    10000.0, 0.981, 1.000,
-    15000.0, 1.031, 1.069,
-    20000.0, 1.069, 1.123,
-    40000.0, 1.174, 1.288
-};
-
-static double short_2pt7_48[][3] = {
-    0.00, 0.000, 0.000,
-    0.01, 0.500, 0.500,
-    1.0, 0.599, 0.653,
-    10.0, 0.635, 0.686,
-    100.0, 0.685, 0.732,
-    500.0, 0.743, 0.782,
-    1000.0, 0.776, 0.812,
-    2000.0, 0.817, 0.850
-};
-
-static double long_2pt7_48[][3] = {
-    0.00, 0.000, 0.000,
-    0.01, 0.500, 0.500,
-    1.0, 0.596, 0.650,
-    10.0, 0.631, 0.681,
-    100.0, 0.676, 0.722,
-    500.0, 0.738, 0.777,
-    1000.0, 0.769, 0.805,
-    2000.0, 0.807, 0.841
-};
-
-/* Shimeng - this is defined already in arrbez.c */
-
 /*
 struct bezier_fit *build_arrester (double v10, enum arr_size_type arr_size,
     enum arr_char_type arr_char, enum arr_minmax_type arr_minmax, int use_linear)
@@ -161,7 +57,7 @@ struct newarr *newarr_head, *newarr_ptr;
 
 int init_newarr_list (void)
 {
-    if (newarr_head = (struct newarr *) malloc (sizeof *newarr_head)) {
+    if ((newarr_head = (struct newarr *) malloc (sizeof *newarr_head))) {
         newarr_head->next = NULL;
         newarr_head->shape = NULL;
         newarr_ptr = newarr_head;
@@ -175,7 +71,7 @@ int init_newarr_list (void)
 void do_all_newarrs (void (*verb) (struct newarr *))
 {
     newarr_ptr = newarr_head;
-    while (newarr_ptr = newarr_ptr->next) {
+    while ((newarr_ptr = newarr_ptr->next)) {
         verb (newarr_ptr);
     }
 }
@@ -183,7 +79,7 @@ void do_all_newarrs (void (*verb) (struct newarr *))
 struct newarr *find_newarr (int at, int from, int to)
 {
 	newarr_ptr = newarr_head;
-	while ((newarr_ptr = newarr_ptr->next) != NULL) {
+	while (((newarr_ptr = newarr_ptr->next) != NULL)) {
 		if ((newarr_ptr->parent->location == at) &&
 			(newarr_ptr->from == from) &&(newarr_ptr->from == from)) return newarr_ptr;
 	}
@@ -214,7 +110,7 @@ int read_newarr (void)
     (void) read_poles ();
     (void) reset_assignments ();
     while (!next_assignment (&i, &j, &k)) {
-        if (ptr = (struct newarr *) malloc (sizeof *ptr)) {
+        if ((ptr = (struct newarr *) malloc (sizeof *ptr))) {
             ptr->vgap = f_vgap;
             ptr->v10 = f_v10;
             ptr->Uref = f_Uref * f_v10;

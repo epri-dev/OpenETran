@@ -18,7 +18,6 @@
   along with OpenETran.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -45,7 +44,7 @@ struct steepfront *steepfront_head, *steepfront_ptr;
 
 int init_steepfront_list (void)
 {
-    if (steepfront_head = (struct steepfront *) malloc (sizeof *steepfront_head)) {
+    if ((steepfront_head = (struct steepfront *) malloc (sizeof *steepfront_head))) {
         steepfront_head->next = NULL;
         steepfront_head->shape = NULL;
         steepfront_ptr = steepfront_head;
@@ -59,7 +58,7 @@ int init_steepfront_list (void)
 void do_all_steepfronts (void (*verb) (struct steepfront *))
 {
     steepfront_ptr = steepfront_head;
-    while (steepfront_ptr = steepfront_ptr->next) {
+    while ((steepfront_ptr = steepfront_ptr->next)) {
         verb (steepfront_ptr);
     }
 }
@@ -79,7 +78,7 @@ int read_steepfront (void)
     (void) read_poles ();
     (void) reset_assignments ();
     while (!next_assignment (&i, &j, &k)) {
-        if (ptr = (struct steepfront *) malloc (sizeof *ptr)) {
+        if ((ptr = (struct steepfront *) malloc (sizeof *ptr))) {
             ptr->shape = NULL;
             move_steepfront (ptr, i, j, k, fpeak, ftf, ftt, ftstart, fsi);
             ptr->next = NULL;

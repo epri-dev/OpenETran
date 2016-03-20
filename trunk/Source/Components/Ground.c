@@ -22,7 +22,6 @@
 LPDW's transient simulation engine, based on H. W. Dommel's IEEE papers.
 Called from the driver and xfmr modules. */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -35,9 +34,9 @@ Called from the driver and xfmr modules. */
 #include "../OETypes.h"
 #include "../Parser.h"
 #include "../ReadUtils.h"
+#include "Meter.h"
 #include "../WritePlotFile.h"
 #include "Pole.h"
-#include "Meter.h"
 #include "Ground.h"
 
 char ground_token[] = "ground";
@@ -81,7 +80,7 @@ void inject_ground (struct ground *ptr)
 
 int init_ground_list (void)
 {
-	if ((ground_head = (struct ground *) malloc (sizeof *ground_head)) != NULL) {
+	if (((ground_head = (struct ground *) malloc (sizeof *ground_head)) != NULL)) {
 		ground_head->next = NULL;
 		ground_ptr = ground_head;
 		return (0);
@@ -94,7 +93,7 @@ int init_ground_list (void)
 void do_all_grounds (void (*verb) (struct ground *))
 {
 	ground_ptr = ground_head;
-	while ((ground_ptr = ground_ptr->next) != NULL) {
+	while (((ground_ptr = ground_ptr->next) != NULL)) {
 		verb (ground_ptr);
 	}
 }
@@ -102,7 +101,7 @@ void do_all_grounds (void (*verb) (struct ground *))
 struct ground *find_ground (int at, int from, int to)
 {
 	ground_ptr = ground_head;
-	while ((ground_ptr = ground_ptr->next) != NULL) {
+	while (((ground_ptr = ground_ptr->next) != NULL)) {
 		if ((ground_ptr->parent->location == at) &&
 			(ground_ptr->from == from) &&(ground_ptr->from == from)) return ground_ptr;
 	}
@@ -163,7 +162,7 @@ double R60, double Rho, double e0, double L)
 {
 	struct ground *ptr;
 
-	if ((ptr = (struct ground *) malloc (sizeof *ptr)) != NULL) {
+	if (((ptr = (struct ground *) malloc (sizeof *ptr)) != NULL)) {
 		ptr->R60 = R60;
 		ptr->y60 = 1.0 / R60;
 		ptr->Ig = e0 * Rho / R60 / R60 / 6.283185;

@@ -22,7 +22,6 @@
 LPDW's transient simulation engine, based on H. W. Dommel's IEEE papers.
 Called from the driver and xfmr modules. */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -63,7 +62,7 @@ int read_resistor (void)
 	(void) read_poles ();
 	(void) reset_assignments ();
 	while (!next_assignment (&i, &j, &k)) {
-		if ((ptr = (struct resistor *) malloc (sizeof *ptr)) != NULL) {
+		if (((ptr = (struct resistor *) malloc (sizeof *ptr)) != NULL)) {
 			ptr->Rphase = r;
 			ptr->parent = find_pole (i);
 			if (!ptr->parent) oe_exit (ERR_BAD_POLE);
@@ -83,7 +82,7 @@ int read_resistor (void)
 				vdc -= gsl_vector_get (defn->vp_offset, k-1);
 			}
 			if (vdc != 0.0) {
-				if ((s_ptr = (struct source *) malloc (sizeof *s_ptr)) != NULL) {
+				if (((s_ptr = (struct source *) malloc (sizeof *s_ptr)) != NULL)) {
 					if (!(s_ptr->val = gsl_vector_calloc (number_of_nodes))) {
 						if (logfp) fprintf( logfp, "can't allocate source currents\n");
 						oe_exit (ERR_MALLOC);

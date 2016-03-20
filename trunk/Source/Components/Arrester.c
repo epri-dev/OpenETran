@@ -22,7 +22,6 @@
 LPDW's transient simulation engine, based on H. W. Dommel's IEEE papers.
 Called from the driver and xfmr modules. */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -33,11 +32,11 @@ Called from the driver and xfmr modules. */
 #include <gsl/gsl_linalg.h>
 
 #include "../OETypes.h"
+#include "Meter.h"
 #include "../WritePlotFile.h"
 #include "../Parser.h"
 #include "../ReadUtils.h"
 #include "Pole.h"
-#include "Meter.h"
 
 #include "Arrester.h"
 
@@ -168,7 +167,7 @@ void update_arrester_history (struct arrester *ptr)
 
 int init_arrester_list (void)
 {
-	if ((arrester_head = (struct arrester *) malloc (sizeof *arrester_head)) != NULL) {
+	if (((arrester_head = (struct arrester *) malloc (sizeof *arrester_head)) != NULL)) {
 		arrester_head->next = NULL;
 		arrester_ptr = arrester_head;
 		return (0);
@@ -181,7 +180,7 @@ int init_arrester_list (void)
 void do_all_arresters (void (*verb) (struct arrester *))
 {
 	arrester_ptr = arrester_head;
-	while ((arrester_ptr = arrester_ptr->next) != NULL) {
+	while (((arrester_ptr = arrester_ptr->next) != NULL)) {
 		verb (arrester_ptr);
 	}
 }
@@ -189,7 +188,7 @@ void do_all_arresters (void (*verb) (struct arrester *))
 struct arrester *find_arrester (int at, int from, int to)
 {
 	arrester_ptr = arrester_head;
-	while ((arrester_ptr = arrester_ptr->next) != NULL) {
+	while (((arrester_ptr = arrester_ptr->next) != NULL)) {
 		if ((arrester_ptr->parent->location == at) &&
 			(arrester_ptr->from == from) &&(arrester_ptr->from == from)) return arrester_ptr;
 	}
@@ -233,7 +232,7 @@ int read_arrester (void)
 	(void) read_poles ();
 	(void) reset_assignments ();
 	while (!next_assignment (&i, &j, &k)) {
-		if ((ptr = (struct arrester *) malloc (sizeof *ptr)) != NULL) {
+		if (((ptr = (struct arrester *) malloc (sizeof *ptr)) != NULL)) {
 			ptr->v_knee = f_knee;
 			ptr->v_gap = f_gap;
 			ptr->r_slope = f_r;

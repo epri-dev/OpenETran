@@ -22,7 +22,6 @@
 LPDW's transient simulation engine, based on H. W. Dommel's IEEE papers.
 Called from the driver and xfmr modules. */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -35,6 +34,7 @@ Called from the driver and xfmr modules. */
 #include "../OETypes.h"
 #include "../Parser.h"
 #include "../ReadUtils.h"
+#include "Meter.h"
 #include "../WritePlotFile.h"
 #include "Line.h"
 #include "Arrbez.h"
@@ -51,7 +51,7 @@ struct pole *pole_head, *pole_ptr;
 struct pole *find_pole (int location)  /* return pointer to pole # location */
 {
 	pole_ptr = pole_head;
-	while ((pole_ptr = pole_ptr->next) != NULL) {
+	while (((pole_ptr = pole_ptr->next) != NULL)) {
 		if (pole_ptr->location == location) {
 			return (pole_ptr);
 		}
@@ -64,7 +64,7 @@ struct span *find_pole_defn (struct pole *ptr)
 	struct line *ln;
 	if (using_network) {
 		ln = line_head;
-		while ((ln = ln->next) != NULL) {
+		while (((ln = ln->next) != NULL)) {
 			if (ln->left == ptr || ln->right == ptr) {
 				return ln->defn;
 			}
@@ -427,7 +427,7 @@ void calc_pole_vmode (struct pole *ptr)
 void do_all_poles (void (*verb) (struct pole *))
 {
 	pole_ptr = pole_head;
-	while ((pole_ptr = pole_ptr->next) != NULL) {
+	while (((pole_ptr = pole_ptr->next) != NULL)) {
 		verb (pole_ptr);
 	}
 }
@@ -438,7 +438,7 @@ struct pole *new_pole (int location)
 {
 	struct pole *ptr;
   
-	if ((ptr = (struct pole *) malloc (sizeof *ptr)) != NULL) {
+	if (((ptr = (struct pole *) malloc (sizeof *ptr)) != NULL)) {
 		pole_ptr->next = ptr;
 		pole_ptr = ptr;
 		pole_ptr->location = location;
@@ -477,7 +477,7 @@ void terminate_pole (struct pole *ptr, struct span *defn)
 	struct source *s_ptr;
 	
 	gsl_matrix_add (ptr->Ybus, defn->Yp);
-	if ((s_ptr = (struct source *) malloc (sizeof *s_ptr)) != NULL) {
+	if (((s_ptr = (struct source *) malloc (sizeof *s_ptr)) != NULL)) {
 		if (!(s_ptr->val = gsl_vector_calloc (number_of_nodes))) { /* must cover all nodes */
 			if (logfp) fprintf( logfp, "can't allocate source currents\n");
 			oe_exit (ERR_MALLOC);
@@ -495,7 +495,7 @@ void terminate_pole (struct pole *ptr, struct span *defn)
 
 int init_pole_list (void)
 {
-	if ((pole_head = (struct pole *) malloc (sizeof *pole_head)) != NULL) {
+	if (((pole_head = (struct pole *) malloc (sizeof *pole_head)) != NULL)) {
 		pole_head->next = NULL;
 		pole_head->voltage = NULL;
 		pole_head->injection = NULL;

@@ -23,7 +23,6 @@
 LPDW's transient simulation engine, based on H. W. Dommel's IEEE papers.
 Called from the driver and xfmr modules. */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -38,6 +37,7 @@ Called from the driver and xfmr modules. */
 #include "OERead.h"
 #include "OEEngine.h"
 #include "ChangeTimeStep.h"
+#include "Components/Meter.h"
 #include "WritePlotFile.h"
 #include "AllComponents.h"
 
@@ -273,7 +273,7 @@ at each histogram midpoint value */
 void loop_control (LPLTINSTRUCT lt_input, LPLTOUTSTRUCT answers)
 {
 	int wire_idx, pole_number, wire_number;
-	int total_cases, case_number, wires_hit;
+	int case_number, wires_hit;
 	int insulators_at_one_pole, first_ins_pole;
 	double num_poles;
 	int has_arresters;
@@ -303,7 +303,6 @@ void loop_control (LPLTINSTRUCT lt_input, LPLTOUTSTRUCT answers)
 	if (arrester_head->next) has_arresters = TRUE;
 	if (logfp) fprintf (logfp, "has_arresters = %d\n", has_arresters);
 
-	total_cases = (lt_input->last_pole_hit - lt_input->first_pole_hit - 1) * wires_hit;
 	num_poles = lt_input->last_pole_hit - lt_input->first_pole_hit + 1.0;
 
 	case_number = 0;
@@ -391,8 +390,6 @@ set properly */
 
 void time_step_loops (LPLTOUTSTRUCT answers)
 {
-	int last_pct = 0;
-
 	t = 0.0;
 	step = 0;
 	flash_halt = FALSE;

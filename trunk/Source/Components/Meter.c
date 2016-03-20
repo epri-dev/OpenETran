@@ -22,7 +22,6 @@
 LPDW's transient simulation engine, based on H. W. Dommel's IEEE papers.
 Called from the driver and xfmr modules. */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -35,6 +34,7 @@ Called from the driver and xfmr modules. */
 #include "../OETypes.h"
 #include "../Parser.h"
 #include "../ReadUtils.h"
+#include "Meter.h"
 #include "../WritePlotFile.h"
 #include "Pole.h"
 #include "Arrester.h"
@@ -42,7 +42,6 @@ Called from the driver and xfmr modules. */
 #include "Customer.h"
 #include "Ground.h"
 #include "PipeGap.h"
-#include "Meter.h"
 
 char meter_token[] = "meter";
 
@@ -89,7 +88,7 @@ void update_meter_peaks (struct meter *ptr)
 
 int init_meter_list (void)
 {
-	if ((meter_head = (struct meter *) malloc (sizeof *meter_head)) != NULL) {
+	if (((meter_head = (struct meter *) malloc (sizeof *meter_head)) != NULL)) {
 		meter_head->next = NULL;
 		meter_ptr = meter_head;
 		return (0);
@@ -102,7 +101,7 @@ int init_meter_list (void)
 void do_all_meters (void (*verb) (struct meter *))
 {
 	meter_ptr = meter_head;
-	while ((meter_ptr = meter_ptr->next) != NULL) {
+	while (((meter_ptr = meter_ptr->next) != NULL)) {
 		verb (meter_ptr);
 	}
 }
@@ -130,29 +129,29 @@ int read_meter (void)
 			(void) add_voltmeter (i, j, k);
 			break;
 		case IARR_FLAG:
-			if ((aptr = find_arrester (i,j,k)) != NULL) {
+			if (((aptr = find_arrester (i,j,k)) != NULL)) {
 				(void) add_ammeter (i, j, IARR_FLAG, &(aptr->amps));
 			} else if ((bptr = find_arrbez (i,j,k)) != NULL) {
 				(void) add_ammeter (i, j, IARR_FLAG, &(bptr->amps));
 			}
 			break;
 		case IPG_FLAG:
-			if ((gptr = find_ground (i,j,k)) != NULL) {
+			if (((gptr = find_ground (i,j,k)) != NULL)) {
 				(void) add_ammeter (i, j, IPG_FLAG, &(gptr->amps));
 			}
 			break;
 		case IHG_FLAG:
-			if ((cptr = find_customer (i,j,k)) != NULL) {
+			if (((cptr = find_customer (i,j,k)) != NULL)) {
 				(void) add_ammeter (i, j, IHG_FLAG, &(cptr->in->amps));
 			}
 			break;
 		case IX2_FLAG:
-			if ((cptr = find_customer (i,j,k)) != NULL) {
+			if (((cptr = find_customer (i,j,k)) != NULL)) {
 				(void) add_ammeter (i, j, IX2_FLAG, &(cptr->Ix2));
 			}
 			break;
 		case IPD_FLAG:
-			if ((pptr = find_pipegap (i,j,k)) != NULL) {
+			if (((pptr = find_pipegap (i,j,k)) != NULL)) {
 				(void) add_ammeter (i, j, IPD_FLAG, &(pptr->amps));
 			}
 			break;
@@ -169,7 +168,7 @@ struct meter *add_voltmeter (int i, int j, int k)
 	struct meter *ptr;
 	struct pole *pptr;
 	
-	if ((ptr = (struct meter *) malloc (sizeof *ptr)) != NULL) {
+	if (((ptr = (struct meter *) malloc (sizeof *ptr)) != NULL)) {
 		pptr = find_pole (i);
 		if (!pptr) oe_exit (ERR_BAD_POLE);
 		ptr->v_from = gsl_vector_ptr (pptr->voltage, j);
@@ -200,7 +199,7 @@ struct meter *add_ammeter (int i, int j, int k, double *target)
 {
 	struct meter *ptr;
 	
-	if ((ptr = (struct meter *) malloc (sizeof *ptr)) != NULL) {
+	if (((ptr = (struct meter *) malloc (sizeof *ptr)) != NULL)) {
 		ptr->v_from = target;
 		ptr->v_to = &ground_voltage;
 		ptr->at = i;

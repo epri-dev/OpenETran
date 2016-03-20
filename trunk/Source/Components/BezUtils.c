@@ -95,7 +95,6 @@ double bez_eval (struct bezier_fit *p, double xx)
     int    i, j1;
     double y = 0.0;
     double sign = 1.0;
-    double dz_dx;
 
     if (xx < p->xarr[0]) {
         xx = 2.0 * p->xarr[0] - xx;
@@ -114,7 +113,6 @@ double bez_eval (struct bezier_fit *p, double xx)
         x1 = p->xarr[i];
         x4 = p->xarr[i+1];
         if (xx <= x4) {
-            dz_dx = 1.0 / (x4 - x1);
             j1 = 3*i;
             y1 = p->ybez_arr[j1];
             y2 = p->ybez_arr[++j1];

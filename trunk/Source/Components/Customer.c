@@ -22,7 +22,6 @@
 LPDW's transient simulation engine, based on H. W. Dommel's IEEE papers.
 Called from the driver and xfmr modules. */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -35,10 +34,10 @@ Called from the driver and xfmr modules. */
 #include "../OETypes.h"
 #include "../Parser.h"
 #include "../ReadUtils.h"
+#include "Meter.h"
 #include "../WritePlotFile.h"
 #include "Pole.h"
 #include "Ground.h"
-#include "Meter.h"
 #include "Customer.h"
 
 char customer_token[] = "customer";
@@ -79,7 +78,7 @@ void update_customer_history (struct customer *ptr)
 
 int init_customer_list (void)
 {
-	if ((customer_head = (struct customer *) malloc (sizeof *customer_head)) != NULL) {
+	if (((customer_head = (struct customer *) malloc (sizeof *customer_head)) != NULL)) {
 		customer_head->next = NULL;
 		customer_ptr = customer_head;
 		return (0);
@@ -92,7 +91,7 @@ int init_customer_list (void)
 void do_all_customers (void (*verb) (struct customer *))
 {
 	customer_ptr = customer_head;
-	while ((customer_ptr = customer_ptr->next) != NULL) {
+	while (((customer_ptr = customer_ptr->next) != NULL)) {
 		verb (customer_ptr);
 	}
 }
@@ -100,7 +99,7 @@ void do_all_customers (void (*verb) (struct customer *))
 struct customer *find_customer (int at, int from, int to)
 {
 	customer_ptr = customer_head;
-	while ((customer_ptr = customer_ptr->next) != NULL) {
+	while (((customer_ptr = customer_ptr->next) != NULL)) {
 		if ((customer_ptr->parent->location == at) &&
 			(customer_ptr->from == from) &&(customer_ptr->from == from)) return customer_ptr;
 	}
@@ -151,7 +150,7 @@ int read_customer (void)
 	(void) read_poles ();
 	(void) reset_assignments ();
 	while (!next_assignment (&i, &j, &k)) {
-		if ((ptr = (struct customer *) malloc (sizeof *ptr)) != NULL) {
+		if (((ptr = (struct customer *) malloc (sizeof *ptr)) != NULL)) {
 			ptr->parent = find_pole (i);
 			if (!ptr->parent) oe_exit (ERR_BAD_POLE);
 			ptr->parent->solve = TRUE;

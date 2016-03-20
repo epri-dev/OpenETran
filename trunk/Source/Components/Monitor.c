@@ -18,7 +18,6 @@
   along with OpenETran.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -29,9 +28,9 @@
 #include "../OETypes.h"
 #include "../Parser.h"
 #include "../ReadUtils.h"
+#include "Meter.h"
 #include "../WritePlotFile.h"
 #include "Pole.h"
-#include "Meter.h"
 #include "LPM.h"
 #include "Insulator.h"
 #include "Monitor.h"
@@ -45,7 +44,7 @@ static struct monitor *find_monitor (int pole, int from, int to)
 
 	if (!ptr) return NULL;
 
-	while ((ptr = ptr->next) != NULL) {
+	while (((ptr = ptr->next) != NULL)) {
 		if (ptr->pole == pole) {
 			if (ptr->from == from && ptr->to == to) {
 				return (ptr);
@@ -64,7 +63,7 @@ static struct meter *find_voltmeter (int pole, int from, int to)
 {
 	struct meter *ptr = meter_head;
 	if (logfp) fprintf (logfp, "find a voltmeter at %d %d-%d\n", pole, from, to);
-	while ((ptr = ptr->next) != NULL) {
+	while (((ptr = ptr->next) != NULL)) {
 		if (logfp) fprintf (logfp, "  check meter at %d %d-%d\n", ptr->at, ptr->from, ptr->to);
 		if (ptr->at == pole) {
 			if (ptr->from == from && ptr->to == to) {
@@ -83,7 +82,7 @@ static struct meter *find_voltmeter (int pole, int from, int to)
 static struct insulator *find_insulator (int pole, int from, int to)
 {
 	struct insulator *ptr = insulator_head;
-	while ((ptr = ptr->next) != NULL) {
+	while (((ptr = ptr->next) != NULL)) {
 		if (ptr->parent->location == pole) {
 			if (ptr->from == from && ptr->to == to) {
 				return (ptr);
@@ -99,7 +98,7 @@ static struct insulator *find_insulator (int pole, int from, int to)
 static struct lpm *find_lpm (int pole, int from, int to)
 {
 	struct lpm *ptr = lpm_head;
-	while ((ptr = ptr->next) != NULL) {
+	while (((ptr = ptr->next) != NULL)) {
 		if (ptr->parent->location == pole) {
 			if (ptr->from == from && ptr->to == to) {
 				return (ptr);
@@ -134,7 +133,7 @@ int init_monitor_list (void)
 {
 	clear_monitors ();
 	
-	if ((monitor_head = (struct monitor *) malloc (sizeof *monitor_head)) != NULL) {
+	if (((monitor_head = (struct monitor *) malloc (sizeof *monitor_head)) != NULL)) {
 		monitor_head->next = NULL;
 		monitor_head->pts = NULL;
 		monitor_ptr = monitor_head;
@@ -151,7 +150,7 @@ struct monitor *add_monitor (int pole, int from, int to, int npts)
 {
 	struct monitor *ptr;
 	
-	if ((ptr = (struct monitor *) malloc (sizeof *ptr)) != NULL) {
+	if (((ptr = (struct monitor *) malloc (sizeof *ptr)) != NULL)) {
 		ptr->from = from;
 		ptr->to = to;
 		ptr->pole = pole;
@@ -205,7 +204,7 @@ void do_all_monitors (void (*verb) (struct monitor *))
 	
 	if (!ptr) return;
 
-    while (ptr = ptr->next) {
+    while ((ptr = ptr->next)) {
         verb (ptr);
     }
 }

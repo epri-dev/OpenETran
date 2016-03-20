@@ -22,7 +22,6 @@
 /* This module contains functions to parse the input for transient
 simulation in oeengine.c */
 
-#include <wtypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
