@@ -26,6 +26,10 @@
 
 #include "OETypes.h"
 
+#ifdef linux
+#define strnicmp strncasecmp
+#endif
+
 #define STREAM_LEN 4096
 #define INPUT_EXT      ".dat"
 #define OUTPUT_EXT     ".out"
@@ -63,7 +67,7 @@ int main (int argc, char *argv[])
 	logfp = fopen ("openetran.log", "w");
 	if (argc >= 4) {
 		strcpy (buf, argv[1]);
-		if (_strnicmp (buf, "-p", 2) == 0) { // single-shot run with plots
+		if (strnicmp (buf, "-p", 2) == 0) { // single-shot run with plots
 			strcpy (buf, argv[2]);
 			switch (tolower (buf[0])) {
 				case 'c': plot_type = PLT_CSV; break;
@@ -71,7 +75,7 @@ int main (int argc, char *argv[])
 				case 'e': plot_type = PLT_ELT; break;
 				default: plot_type = PLT_NONE; break;
 			}
-		} else if (_strnicmp (buf, "-i", 2) == 0) { // critical current iterations
+		} else if (strnicmp (buf, "-i", 2) == 0) { // critical current iterations
 			iteration_mode = FIND_CRITICAL_CURRENT;
 			stop_on_flashover = TRUE;
 		} else {

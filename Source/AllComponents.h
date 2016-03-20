@@ -21,7 +21,7 @@
 #ifndef all_components_included
 #define all_components_included
 
-#include "Components/Arrbez.h"
+#include "Components/ArrBez.h"
 #include "Components/Arrester.h"
 #include "Components/Capacitor.h"
 #include "Components/Customer.h"
