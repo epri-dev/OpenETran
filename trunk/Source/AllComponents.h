@@ -32,7 +32,7 @@
 #include "Components/LPM.h"
 #include "Components/Meter.h"
 #include "Components/Monitor.h"
-#include "Components/Pipegap.h"
+#include "Components/PipeGap.h"
 #include "Components/Pole.h"
 #include "Components/Resistor.h"
 #include "Components/Source.h"
