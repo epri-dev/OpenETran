@@ -37,7 +37,7 @@ Called from the driver and xfmr modules. */
 #include "Meter.h"
 #include "../WritePlotFile.h"
 #include "Line.h"
-#include "Arrbez.h"
+#include "ArrBez.h"
 #include "Source.h"
 #include "Pole.h"
 
