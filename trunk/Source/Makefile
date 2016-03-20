@@ -1,5 +1,3 @@
-EXE=OpenETran.exe
-
 SRC = \
  OpenETran.c \
  OEEngine.c \
@@ -8,33 +6,40 @@ SRC = \
  ReadUtils.c \
  WritePlotFile.c \
  ChangeTimeStep.c \
- components/Arrbez.c \
- components/Arrester.c \
- components/BezUtils.c \
- components/Capacitor.c \
- components/Customer.c \
- components/Ground.c \
- components/Inductor.c \
- components/Insulator.c \
- components/Line.c \
- components/LPM.c \
- components/Meter.c \
- components/Monitor.c \
- components/NewArr.c \
- components/PipeGap.c \
- components/Pole.c \
- components/Resistor.c \
- components/Source.c \
- components/SteepFront.c \
- components/Surge.c \
- components/Transformer.c
+ Components/ArrBez.c \
+ Components/Arrester.c \
+ Components/BezUtils.c \
+ Components/Capacitor.c \
+ Components/Customer.c \
+ Components/Ground.c \
+ Components/Inductor.c \
+ Components/Insulator.c \
+ Components/Line.c \
+ Components/LPM.c \
+ Components/Meter.c \
+ Components/Monitor.c \
+ Components/NewArr.c \
+ Components/PipeGap.c \
+ Components/Pole.c \
+ Components/Resistor.c \
+ Components/Source.c \
+ Components/SteepFront.c \
+ Components/Surge.c \
+ Components/Transformer.c
 
 OBJ=$(SRC:.c=.o)
+
+ifndef windir
+RM=rm
+EXE=OpenETran
+else
+RM=del
+EXE=OpenETran.exe
+endif
 
 CC=gcc
 CFLAGS=-Wall -O3 -I/gsl/gsl-2.1
 LDFLAGS=-L/gsl/gsl-2.1/.libs -L/gsl/gsl-2.1/cblas/.libs -static -lgsl -lgslcblas -lm
-RM=del
 
 %.o : %.c
 	$(CC) $(CFLAGS) -o $@ -c $<
@@ -47,4 +52,4 @@ $(EXE): $(OBJ)
 
 .PHONY : clean
 clean:
-	-$(RM) $(OBJ) core
+	-$(RM) $(OBJ)

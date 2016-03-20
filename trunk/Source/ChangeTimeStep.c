@@ -31,7 +31,7 @@ a simulation. */
 #include "ChangeTimeStep.h"
 #include "OETypes.h"
 #include "OEEngine.h"
-#include "Components/Arrbez.h"
+#include "Components/ArrBez.h"
 #include "Components/Arrester.h"
 #include "Components/Capacitor.h"
 #include "Components/Customer.h"
